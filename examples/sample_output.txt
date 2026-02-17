@@ -1,0 +1,173 @@
+EXPECTED OUTPUT - Feature Extraction Script
+==========================================
+
+AUTOAI IMAGE CLASSIFICATION PROJECT
+Step 1: CNN Feature Extraction
+================================================================================
+
+📋 PROJECT CONFIGURATION
+================================================================================
+Model: ResNet50
+Image Size: (224, 224)
+Feature Dimensions: 2048
+Output File: image_features_dataset.csv
+
+🔧 LOADING PRE-TRAINED CNN MODEL
+================================================================================
+✓ Loaded ResNet50 (2048-dimensional features)
+✓ Final layer removed - outputting 2048D feature vectors
+✓ Model ready for feature extraction
+
+📊 MODEL ARCHITECTURE
+================================================================================
+Model: "resnet50"
+_________________________________________________________________
+Layer (type)                Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)        [(None, 224, 224, 3)]     0         
+...
+avg_pool (GlobalAveragePooling2D) (None, 2048)        0         
+=================================================================
+Total params: 23,587,712
+Trainable params: 23,534,592
+Non-trainable params: 53,120
+_________________________________________________________________
+
+📁 CREATING SAMPLE DATASET
+================================================================================
+Creating 3 classes with ~25 images each...
+  ✓ class_1: 23 images created
+  ✓ class_2: 26 images created
+  ✓ class_3: 24 images created
+
+✓ Total images created: 73
+✓ Dataset directory: /path/to/dataset
+
+📂 LOADING DATASET
+================================================================================
+✓ Found 3 classes
+  ✓ class_1: 23 images
+  ✓ class_2: 26 images
+  ✓ class_3: 24 images
+
+✓ Total images loaded: 73
+✓ Total classes: 3
+
+📊 DATASET STATISTICS
+================================================================================
+class_1    23
+class_2    26
+class_3    24
+Name: count, dtype: int64
+
+Total images: 73
+Classes: ['class_1', 'class_2', 'class_3']
+
+🖼️  SAMPLE IMAGES
+================================================================================
+Displaying 6 sample images...
+✓ Visualization saved: sample_images.png
+
+⚙️  EXTRACTING FEATURES
+================================================================================
+Extracting features from 73 images using ResNet50...
+  Processed 16/73 images
+  Processed 32/73 images
+  Processed 48/73 images
+  Processed 64/73 images
+  Processed 73/73 images
+
+✓ Feature extraction complete!
+✓ Feature shape: (73, 2048)
+✓ Features per image: 2048
+
+📊 CREATING TABULAR DATASET
+================================================================================
+✓ Dataset created with 73 rows and 2050 columns
+✓ Feature columns: 2048
+✓ Label column: 'label'
+
+📋 DATASET PREVIEW
+================================================================================
+   feature_0000  feature_0001  ...  feature_2047     label
+0      0.123456      0.234567  ...      0.789012   class_1
+1      0.234567      0.345678  ...      0.890123   class_1
+2      0.345678      0.456789  ...      0.901234   class_2
+3      0.456789      0.567890  ...      0.012345   class_2
+4      0.567890      0.678901  ...      0.123456   class_3
+
+[5 rows x 2050 columns]
+
+🔍 DATA INTEGRITY CHECKS
+================================================================================
+
+1️⃣  Checking uniform dimensions...
+  ✓ All images have 2048 features
+  ✓ Number of samples: 73
+
+2️⃣  Checking for missing values...
+  ✓ No missing values found
+
+3️⃣  Checking feature value ranges...
+  Min value: -1.2345
+  Max value: 8.9012
+  Mean: 0.4523
+  Std: 1.2341
+
+4️⃣  Checking label distribution...
+class_1    23
+class_2    26
+class_3    24
+Name: count, dtype: int64
+  ✓ All classes have ≥10 samples
+
+5️⃣  Checking data types...
+  Feature columns: [dtype('float64')]
+  Label column: object
+
+✅ DATA INTEGRITY CHECK COMPLETE
+
+💾 SAVING DATASET
+================================================================================
+✓ Full dataset saved: image_features_dataset.csv
+  Size: 1234.56 KB
+✓ AutoAI dataset saved: autoai_image_features_dataset.csv
+✓ Dataset summary saved: dataset_summary.txt
+
+📝 GENERATING DOCUMENTATION
+================================================================================
+✓ Documentation saved: feature_extraction_documentation.txt
+
+================================================================================
+✅ FEATURE EXTRACTION COMPLETE
+================================================================================
+
+Summary:
+--------
+✓ Images processed: 73
+✓ Classes: 3 (class_1, class_2, class_3)
+✓ Model used: ResNet50
+✓ Feature dimensions: 2048
+✓ Output dataset: image_features_dataset.csv
+✓ AutoAI ready: autoai_image_features_dataset.csv
+
+Files created:
+--------------
+1. image_features_dataset.csv - Full dataset with features and labels
+2. autoai_image_features_dataset.csv - Dataset ready for AutoAI
+3. dataset_summary.txt - Dataset statistics
+4. feature_extraction_documentation.txt - Complete documentation
+5. sample_images.png - Sample images visualization
+
+Next steps:
+-----------
+1. Upload 'autoai_image_features_dataset.csv' to IBM Watson Studio
+2. Create AutoAI experiment in Watson Studio
+3. Select 'label' as target column
+4. Run experiment and analyze results
+
+================================================================================
+
+PROCESSING TIME: ~120 seconds
+SUCCESS RATE: 100%
+STATUS: ✅ READY FOR WATSON STUDIO
